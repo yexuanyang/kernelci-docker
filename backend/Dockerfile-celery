@@ -28,4 +28,4 @@ COPY celery/entrypoint.sh /srv/entrypoint.sh
 #     python3 setup.py install
 
 # Run application
-CMD ["/srv/entrypoint.sh"]
+ENTRYPOINT ["/srv/entrypoint.sh"]

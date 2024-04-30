@@ -43,4 +43,4 @@ COPY --from=backend /tmp/kernelci-backend/doc/schema/ /usr/share/nginx/html/kern
 # Tools to perform health check
 RUN apk add --update curl py-pip && pip install uwsgi-tools
 COPY entrypoint.sh /usr/bin/entrypoint.sh
-CMD ["/usr/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]

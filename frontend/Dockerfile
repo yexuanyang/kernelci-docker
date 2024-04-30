@@ -26,4 +26,5 @@ COPY flask_settings /etc/kernelci/kernelci-frontend.cfg
 EXPOSE 5000
 COPY uwsgi.ini /srv/uwsgi.ini
 COPY entrypoint.sh /srv/entrypoint.sh
-CMD ["/srv/entrypoint.sh"]
+RUN ls /srv/entrypoint.sh
+ENTRYPOINT ["/srv/entrypoint.sh"]

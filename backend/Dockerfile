@@ -32,4 +32,4 @@ RUN pip install -r /srv/kernelci-backend/requirements.txt
 EXPOSE 8888
 
 COPY app/entrypoint.sh /srv/entrypoint.sh
-CMD ["/srv/entrypoint.sh"]
+ENTRYPOINT [ "/srv/entrypoint.sh" ]
