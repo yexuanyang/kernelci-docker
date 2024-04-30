@@ -12,6 +12,7 @@ FROM bitnami/minideb:buster as backend
 
 RUN install_packages git python python-pip python-setuptools python-dev build-essential
 RUN git clone https://github.com/kernelci/kernelci-backend.git /tmp/kernelci-backend
+RUN cd /tmp/kernelci-backend && git checkout -f 6111f84cbffa57c1facf2119d65d3ee051bb5f86 && cd -
 RUN pip install -r /tmp/kernelci-backend/requirements.txt
 RUN cd /tmp/kernelci-backend/doc && make html
 

@@ -5,10 +5,11 @@ FROM bitnami/minideb:buster
 RUN install_packages build-essential git python python-pip python-setuptools python-dev uwsgi-plugin-python curl redis-tools wget
 
 # Install Node.js / nodemon
-RUN wget --no-check-certificate -nc -P /tmp/bitnami/pkg/cache/ https://downloads.bitnami.com/files/stacksmith/node-8.9.3-0-linux-x64-debian-8.tar.gz && \
-    tar -zxf /tmp/bitnami/pkg/cache/node-8.9.3-0-linux-x64-debian-8.tar.gz -P --transform 's|^.*/files|/opt/bitnami|' --wildcards '*/files' && \
-    rm -rf /tmp/bitnami/pkg/cache/node-8.9.3-0-linux-x64-debian-8.tar.gz
-ENV PATH="/opt/bitnami/node/bin:$PATH"
+WORKDIR /
+RUN wget https://nodejs.org/dist/v8.17.0/node-v8.17.0-linux-x64.tar.xz \
+    && tar -xvf node-v8.17.0-linux-x64.tar.xz \
+    && cd node-v8.17.0-linux-x64 
+ENV PATH="/node-v8.17.0-linux-x64/bin:$PATH"
 RUN npm install -g nodemon
 
 # Setup application
